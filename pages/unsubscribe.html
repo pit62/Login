@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--by pit-->
+<html>
+<?php 
+$path_percorso   = "../"; 
+include $path_percorso."class/dbClass.php";
+include $path_percorso."class/loginClass.php";
+$login = new loginClass("Login");
+
+?>
+
+<head>
+    <title>Unsubscribe</title>
+    <script type="text/javascript" src="<?php echo $path_percorso.'js/javascript.js'; ?>"></script>
+    
+</head>
+<link rel="shortcut icon" href="<?php echo $path_percorso.'favicon.ico'; ?>"/>
+<link rel="stylesheet" href="<?php echo $path_percorso.'css/style.css'; ?>" type="text/css" />
+<link rel="stylesheet" href="<?php echo $path_percorso.'css/style_login.css'; ?>" type="text/css" />
+
+
+<body>
+<header>	
+    <h1>Unsubscribe</h1>
+</header>
+<?php 
+    $d_user_name="";$d_pass="";$msg="";
+    if (isset($_POST['D_USER_NAME'])) {
+        $d_user_name = trim($_POST['D_USER_NAME']);
+        $d_pass = trim($_POST['D_PASS']);
+        $db = new dbClass("db.tables.php");
+        if (!$db->OpenConnection()) { die("End"); }
+        include "unsubscribe.php";
+        unset($db);
+    }
+
+?>
+<div id="page">
+    <div id="center" class="container">
+        <form name="insert" id="insert" method="post" action="">
+        <div id="box">
+            <span class="description">User Name:</span>
+            <input class="input" name="D_USER_NAME" type="text" value="<?php echo $d_user_name;?>" size="15" maxlength="15" spellcheck="false" autofocus>
+            <span class="description">Password:</span>
+            <input class="input" name="D_PASS" type="text" value="<?php echo $d_pass;?>" size="22" maxlength="32" >
+            
+            <input class="button" type="submit" value="Unsubscribe" onclick="LoadValues(document.URL,document.insert.D_USER_NAME.value)">
+        </div>
+        </form>
+    </div>
+    <?php 
+    if ($msg != "") {
+        echo $msg; ?>
+        <input class="button" type="submit" name="ok" value="Ok" onClick="window.open('<?php echo $path_percorso."index.html"; ?>','_self');">
+    <?php    
+    } ?>
+</div>
+    
+<div id="footer">
+    <a href="<?php echo $path_percorso.'pages/cookies_policy.html'; ?>" target="_blank" title="Cookies policy" >Cookies policy</a>
+    <p style="display: inline;float:right;">by pietro caporale</p>
+</div>
+    
+</body>
+</html>
