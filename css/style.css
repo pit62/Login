@@ -1,0 +1,101 @@
+* {
+  font-family: "Courier New", Georgia, Verdana, "Palatino Linotype", "Times New Roman", Arial; 
+  color: DarkBlue;
+  background: transparent;
+  margin: 2px; 
+  font-size: 10px;
+}
+
+header {
+  font-family: "KRISTEN ITC", "Courier New";
+  text-align: center;
+  border: solid 1px Orange;
+  padding: 0.2%;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto; }
+logo {
+  font-family: "Trebuchet MS", "COPPERPLATE GOTHIC", "Courier New";
+  color: DarkBlue;
+  font-size: 80%;
+  vertical-align: 5%;
+  display: inline;
+  margin-left: 0.1%; }
+
+#footer {
+  border: solid 1px Orange;
+  padding: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+
+#footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: Green; }
+#menu {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.1% 0.1% 0.1% 0.1%;
+  width: 98%;
+}
+
+#menu div {
+  display: inline-block; }
+
+#menu a:hover {
+  font-weight: bold;
+  font-size: 120%; }
+
+.button_menu {
+  font-family: 'COPPERPLATE GOTHIC';
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: PapayaWhip;
+  color: DarkRed;
+  height: 1.5em; }
+
+.button {
+  font-weight: bold;
+  display: inline-block;
+  font-family: 'COPPERPLATE GOTHIC';
+  font-size: 1.2em;
+  background-color: PapayaWhip;
+  color: DarkRed;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  height: 35px;
+  width: 100%; }
+
+#page {
+  width: 100%;
+  padding: 0.2%;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto; }
+
+.input {
+  color: DarkBlue;
+  background-color: PapayaWhip;
+  margin: 2px; }
+
+input[type="text"]:focus {
+  color: DarkBlue;
+  background-color: PapayaWhip; }
+
+input[type="submit"]:hover {
+  font-weight: bold;
+  color: Blue;
+  background-color: PapayaWhip; }
+
+
+.description {
+  font-weight: bold;
+  line-height: 180%;
+  display: inline-table; }
+
+#center {
+  display: block;
+  margin: 0px auto;
+  text-align: center; }
