@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--by pit-->
+<html>
+<?php 
+$path_percorso   = "";
+include $path_percorso."class/dbClass.php";
+include $path_percorso."class/loginClass.php";
+
+?>
+
+<head>
+    <title>Login</title>
+</head>
+<link rel="shortcut icon" href="<?php echo $path_percorso.'favicon.ico'; ?>"/>
+<link rel="stylesheet" href="<?php echo $path_percorso.'css/style.css'; ?>" type="text/css" />
+<?php
+    $db = new dbClass("db.tables.php");
+    if(!$db->Init()) { die("Error Init Database. End"); }
+    if (!$db->OpenConnection()) { die("End"); }
+    $login = new loginClass("Login");
+    $login->checkLogin($db);
+    unset($db);
+?>
+
+<body>
+<header>
+<h1>Login Users</h1>
+<logo>Managing Login Users with php, javascript and sql</logo>
+</header>
+<br>
+            
+<div id="menu">
+    <div><input class="button_menu" type="submit" name="menu" title="Show button for all users" value="All users pages" onClick="window.open('pages_all/all_users.html');"></div>
+<?php   if ($login->user_uid) {?>
+    <div><input class="button_menu" type="submit" name="menu" title="Show button for logged users" value="Logged users pages" onClick="window.open('pages_reserved/logged_users.html');"></div>
+    <div><input class="button_menu" type="submit" name="menu" title="Logout" value="Logout" onClick="window.open('pages/logout.html','_self');"></div>
+<?php   }?>
+<?php   
+    if(!$login->user_uid) {
+        if ($login->cookies_uid) {
+?>
+        <div><input class="button_menu" type="submit" name="menu" title="Login for advanced features" value="Login" onClick="window.open('pages/login.html','_self');"></div>
+        <div><input class="button_menu" type="submit" name="menu" title="Unsubscribe from site" value="Unsubscribe" onClick="window.open('pages/unsubscribe.html','_self');"></div>
+<?php   }
+    else {
+?>
+        <div><input class="button_menu" type="submit" name="menu" title="Register for advanced features" value="Register" onClick="window.open('pages/register.html','_self');"></div>
+<?php   }}?>
+</div>
+<div id="page">
+    
+    
+</div>
+    
+<div id="footer">
+    <a href="<?php echo $path_percorso.'pages/cookies_policy.html'; ?>" target="_blank" title="Cookies policy" >Cookies policy</a>
+    <p style="display: inline;float:right;">by pietro caporale</p>
+</div>
+    
+</body>
+</html>
