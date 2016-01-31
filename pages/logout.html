@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--by pit-->
+<html>
+<?php 
+$path_percorso   = "../"; 
+include $path_percorso."class/dbClass.php";
+include $path_percorso."class/loginClass.php";
+?>
+
+<head>
+    <title>Logout</title>
+    <script type="text/javascript" src="<?php echo $path_percorso.'js/javascript.js'; ?>"></script>
+    
+</head>
+<link rel="shortcut icon" href="<?php echo $path_percorso.'favicon.ico'; ?>"/>
+<link rel="stylesheet" href="<?php echo $path_percorso.'css/style.css'; ?>" type="text/css" />
+<link rel="stylesheet" href="<?php echo $path_percorso.'css/style_login.css'; ?>" type="text/css" />
+<?php
+    $db = new dbClass("db.tables.php");
+    if (!$db->OpenConnection()) { die("End"); }
+    $login = new loginClass("Login");
+    $login->checkLogin($db);
+    unset($db);
+?>
+
+
+<body>
+<header>	
+    <h1>Logout</h1>
+</header>
+<?php
+    $msg="";
+    if (isset($_POST['logout'])&& $_POST['logout']== "ok" ) {
+        if ($login->user_uid) {
+            $db = new dbClass("db.tables.php");
+            if (!$db->OpenConnection()) { die("End"); }
+            include "logout.php";
+            unset($db);
+        }
+    }
+
+
+?>
+<div id="page">
+    <div id="center" class="container">
+        <form name="insert" id="insert" method="post" action="">
+        <div id="box">
+            <input type="hidden" name="logout" value="ok">
+            <input class="button" type="submit" value="Logout" onclick="LoadValues(document.URL,document.insert.ok.value)">
+        </div>
+        </form>
+    </div>
+    
+    <?php 
+    if ($msg != "") {
+        echo $msg; ?>
+        <input class="button" type="submit" name="ok" value="Ok" onClick="window.open('<?php echo $path_percorso."index.html"; ?>','_self');">
+    <?php    
+    } ?>
+</div>
+    
+<div id="footer">
+    <a href="<?php echo $path_percorso.'pages/cookies_policy.html'; ?>" target="_blank" title="Cookies policy" >Cookies policy</a>
+    <p style="display: inline;float:right;">by pietro caporale</p>
+</div>
+    
+</body>
+</html>
