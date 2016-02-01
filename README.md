@@ -38,7 +38,7 @@ If recognized table Session will be updated:
 After Login browser will show 'All user', 'Logged users pages' and 'Logout' links.
 This status will not change until it is logged out.
 
-#Logout
+##Logout
 The Logout page will delete the references recorded in Session table, but Registration will be 
 kept in memory by the cookie until the total Unsubscription.
 
