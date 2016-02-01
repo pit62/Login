@@ -13,11 +13,11 @@ class dbClass {
     function __construct($dbconfig)
     {
         include_once(dirname(__FILE__)."/".$dbconfig);
-        $this->dbhost = ""; /*your host*/
-        $this->dbuser = ""; /*your user name */
-        $this->dbpwd = ""; /*your password*/
+        $this->dbhost = "host_name";
+        $this->dbuser = "user_name";
+        $this->dbpwd = "password";
         $this->dbname = "db_login"; /*your database name*/
-        
+        $test=false; if ($test) { include "connection.php"; } /*for my connections parameters*/
     }
     function __destruct()  
     {
